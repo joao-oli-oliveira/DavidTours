@@ -25,7 +25,7 @@ const path = require('path');
   });
   // backdrop-filter on sticky/fixed bars makes Chrome repeat page content in tall captures; drop it for the shot.
   await page.addStyleTag({ content: '.backdrop-blur{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}' });
-  // Settle at the top so the sticky header is captured in its resting position.
+  // Settle at the top before capturing.
   await page.evaluate(() => window.scrollTo(0, 0));
   await new Promise(r => setTimeout(r, 500));
   const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);

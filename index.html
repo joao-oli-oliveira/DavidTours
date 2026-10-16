@@ -246,7 +246,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
-  html { scroll-padding-top: 88px; }
+  html { scroll-padding-top: 16px; }
   body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
   h1, h2, h3, .font-display { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-weight: 400; }
   h1, h2 { text-wrap: balance; }
@@ -257,45 +257,17 @@
   }
 </style>
 </head>
-<body class="bg-[#FBF8F3] text-[#16202A] antialiased pb-[80px] md:pb-0">
+<body class="bg-[#FBF8F3] text-[#16202A] antialiased">
 
 <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:z-[110] focus:top-3 focus:left-3 focus:bg-[#0E3A5B] focus:text-white focus:px-4 focus:py-3 focus:rounded-xl focus:text-[15px] focus:font-semibold">Skip to main content</a>
 
-<!-- HEADER -->
-<header class="sticky top-0 z-50 bg-[#FBF8F3]/92 backdrop-blur border-b border-[#E6DFD3]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-[72px]">
-    <a href="#top" class="flex items-center gap-2.5 min-h-11" aria-label="David Tours, back to top">
-      <span class="w-9 h-9 rounded-xl bg-[#F4C430] text-[#16202A] inline-flex items-center justify-center font-display text-[20px] leading-none" aria-hidden="true">D</span>
-      <span class="font-display text-[22px] leading-none tracking-tight">David Tours</span>
-    </a>
-    <nav class="hidden lg:flex items-center gap-7 text-[16px] font-medium text-[#46505B]" aria-label="Primary">
-      <a href="#tours" class="hover:text-[#0E3A5B] py-3">Tuk-tuk tours</a>
-      <a href="#day-trips" class="hover:text-[#0E3A5B] py-3">Day trips</a>
-      <a href="#prices" class="hover:text-[#0E3A5B] py-3">Prices</a>
-      <a href="#about" class="hover:text-[#0E3A5B] py-3">About David</a>
-      <a href="#faq" class="hover:text-[#0E3A5B] py-3">FAQ</a>
-      <a href="#contact" class="hover:text-[#0E3A5B] py-3">Book</a>
-    </nav>
-    <div class="flex items-center gap-2">
-      <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="header_nav" class="inline-flex items-center gap-2 bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-11 text-[15px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">
-        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2C2.1 6.4 6.5 2 12 2c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.4 9.9-9.9 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
-        <span class="hidden sm:inline">Book on WhatsApp</span><span class="sm:hidden">WhatsApp</span>
-      </a>
-      <button onclick="toggleMobileMenu()" data-ga="menu_toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="menu-toggle-btn" class="lg:hidden w-11 h-11 shrink-0 inline-flex items-center justify-center rounded-xl border border-[#E6DFD3] bg-white text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">
-        <svg id="menu-icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-        <svg id="menu-icon-close" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="hidden" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-  </div>
-  <nav id="mobile-menu" class="hidden lg:hidden border-t border-[#E6DFD3] bg-[#FBF8F3] px-4 sm:px-6 py-2 flex flex-col text-[18px] font-medium text-[#16202A]" aria-label="Mobile">
-    <a href="#tours" onclick="closeMobileMenu()" class="py-4 border-b border-[#E6DFD3]">Tuk-tuk tours</a>
-    <a href="#day-trips" onclick="closeMobileMenu()" class="py-4 border-b border-[#E6DFD3]">Day trips</a>
-    <a href="#prices" onclick="closeMobileMenu()" class="py-4 border-b border-[#E6DFD3]">Prices</a>
-    <a href="#about" onclick="closeMobileMenu()" class="py-4 border-b border-[#E6DFD3]">About David</a>
-    <a href="#faq" onclick="closeMobileMenu()" class="py-4 border-b border-[#E6DFD3]">FAQ</a>
-    <a href="#contact" onclick="closeMobileMenu()" class="py-4">Book</a>
-  </nav>
-</header>
+<!-- LOGO -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 pt-5 md:pt-7">
+  <a href="#top" class="inline-flex items-center gap-2.5 min-h-11" aria-label="David Tours, back to top">
+    <span class="w-9 h-9 rounded-xl bg-[#F4C430] text-[#16202A] inline-flex items-center justify-center font-display text-[20px] leading-none" aria-hidden="true">D</span>
+    <span class="font-display text-[22px] leading-none tracking-tight">David Tours</span>
+  </a>
+</div>
 
 <main id="main">
 <!-- HERO -->
@@ -409,7 +381,6 @@
           </details>
           <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
             <p class="font-display text-[26px] leading-none">€150 <span class="font-sans text-[15px] font-medium text-[#46505B]">per tuk-tuk · 2h · up to 6</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20the%20Old%20Town%20Panoramic%20Tour%20%282h%20tuk-tuk%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="tour_card" data-ga-tour="Old Town Panoramic Tour" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Book on WhatsApp</a>
           </div>
         </div>
       </article>
@@ -439,7 +410,6 @@
           </details>
           <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
             <p class="font-display text-[26px] leading-none">€150 <span class="font-sans text-[15px] font-medium text-[#46505B]">per tuk-tuk · 2h · up to 6</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20the%20Historical%20City%20Center%20Tour%20%282h%20tuk-tuk%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="tour_card" data-ga-tour="Historical City Center Tour" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Book on WhatsApp</a>
           </div>
         </div>
       </article>
@@ -466,7 +436,6 @@
           </details>
           <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
             <p class="font-display text-[26px] leading-none">€150 <span class="font-sans text-[15px] font-medium text-[#46505B]">per tuk-tuk · 2h · up to 6</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20the%20Bel%C3%A9m%20Tour%20%282h%20tuk-tuk%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="tour_card" data-ga-tour="Belém Tour" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Book on WhatsApp</a>
           </div>
         </div>
       </article>
@@ -490,61 +459,6 @@
     </div>
 
     <div id="trips-scroller" class="mt-8 md:mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 -mx-4 px-4 sm:-mx-6 sm:px-6 pb-3 xl:grid xl:grid-cols-4 xl:gap-6 xl:overflow-visible xl:mx-0 xl:px-0 xl:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-scroller>
-
-      <!-- NAZARÉ & ÓBIDOS -->
-      <article id="trip-nazare-obidos" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
-          <picture>
-            <source srcset="images/daytrip-nazare-obidos.webp" type="image/webp">
-            <img src="images/daytrip-nazare-obidos.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="Aerial view of Óbidos castle and the walled town" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="p-5 sm:p-6 flex flex-col flex-1">
-          <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Nazaré &amp; Óbidos</h3>
-          <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">A medieval walled town, a UNESCO monastery and the giant waves of Nazaré.</p>
-          <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 5 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-            <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
-              <li>Óbidos, walls and ginja in a chocolate cup</li>
-              <li>Alcobaça Monastery (UNESCO)</li>
-              <li>Nazaré Sítio viewpoint &amp; funicular</li>
-              <li>Fresh-fish lunch on the seafront</li>
-              <li>Praia do Norte lighthouse</li>
-            </ol>
-          </details>
-          <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
-            <p class="font-display text-[26px] leading-none">€550 <span class="font-sans text-[15px] font-medium text-[#46505B]">per group · 9h · up to 4</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27m%20interested%20in%20the%20Nazar%C3%A9%20%26%20%C3%93bidos%20day%20trip%20%28full%20day%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="trip_card" data-ga-tour="Nazaré & Óbidos Day Trip" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Ask on WhatsApp</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- FÁTIMA & BATALHA -->
-      <article id="trip-fatima-batalha" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
-          <picture>
-            <source srcset="images/daytrip-fatima-batalha.webp" type="image/webp">
-            <img src="images/daytrip-fatima-batalha.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="The Gothic Monastery of Batalha" loading="lazy" decoding="async">
-          </picture>
-        </div>
-        <div class="p-5 sm:p-6 flex flex-col flex-1">
-          <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Fátima &amp; Batalha</h3>
-          <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">The Sanctuary of Fátima, a local lunch and the Gothic monastery of Batalha.</p>
-          <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 4 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
-            <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
-              <li>Sanctuary of Fátima &amp; Chapel of the Apparitions</li>
-              <li>Aljustrel, the shepherd children's village</li>
-              <li>Lunch in a local tasca</li>
-              <li>Batalha Monastery (UNESCO)</li>
-            </ol>
-          </details>
-          <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
-            <p class="font-display text-[26px] leading-none">€550 <span class="font-sans text-[15px] font-medium text-[#46505B]">per group · 8h · up to 4</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27m%20interested%20in%20the%20F%C3%A1tima%20%26%20Batalha%20day%20trip%20%28full%20day%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="trip_card" data-ga-tour="Fátima & Batalha Day Trip" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Ask on WhatsApp</a>
-          </div>
-        </div>
-      </article>
 
       <!-- SINTRA & CASCAIS -->
       <article id="trip-sintra-cascais" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
@@ -575,7 +489,6 @@
           </details>
           <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
             <p class="font-display text-[26px] leading-none"><span class="whitespace-nowrap">€350 <span class="font-sans text-[15px] font-medium text-[#46505B]">half</span></span> · <span class="whitespace-nowrap">€550 <span class="font-sans text-[15px] font-medium text-[#46505B]">full</span></span><span class="block mt-1.5 font-sans text-[15px] font-medium text-[#46505B]">per group · up to 4</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27m%20interested%20in%20the%20Sintra%20%26%20Cascais%20day%20trip%20%28half%20or%20full%20day%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="trip_card" data-ga-tour="Sintra & Cascais Day Trip" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Ask on WhatsApp</a>
           </div>
         </div>
       </article>
@@ -609,7 +522,59 @@
           </details>
           <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
             <p class="font-display text-[26px] leading-none"><span class="whitespace-nowrap">€350 <span class="font-sans text-[15px] font-medium text-[#46505B]">half</span></span> · <span class="whitespace-nowrap">€550 <span class="font-sans text-[15px] font-medium text-[#46505B]">full</span></span><span class="block mt-1.5 font-sans text-[15px] font-medium text-[#46505B]">per group · up to 4</span></p>
-            <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27m%20interested%20in%20the%20Arr%C3%A1bida%20day%20trip%20%28half%20or%20full%20day%29." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="trip_card" data-ga-tour="Arrábida Day Trip" class="mt-3 w-full inline-flex items-center justify-center bg-[#25D366] text-[#16202A] rounded-xl px-4 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Ask on WhatsApp</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- NAZARÉ & ÓBIDOS -->
+      <article id="trip-nazare-obidos" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
+          <picture>
+            <source srcset="images/daytrip-nazare-obidos.webp" type="image/webp">
+            <img src="images/daytrip-nazare-obidos.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="Aerial view of Óbidos castle and the walled town" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="p-5 sm:p-6 flex flex-col flex-1">
+          <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Nazaré &amp; Óbidos</h3>
+          <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">A medieval walled town, a UNESCO monastery and the giant waves of Nazaré.</p>
+          <details class="group mt-4 border-t border-[#E6DFD3]">
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 5 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
+              <li>Óbidos, walls and ginja in a chocolate cup</li>
+              <li>Alcobaça Monastery (UNESCO)</li>
+              <li>Nazaré Sítio viewpoint &amp; funicular</li>
+              <li>Fresh-fish lunch on the seafront</li>
+              <li>Praia do Norte lighthouse</li>
+            </ol>
+          </details>
+          <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
+            <p class="font-display text-[26px] leading-none">€550 <span class="font-sans text-[15px] font-medium text-[#46505B]">per group · 9h · up to 4</span></p>
+          </div>
+        </div>
+      </article>
+
+      <!-- FÁTIMA & BATALHA -->
+      <article id="trip-fatima-batalha" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
+          <picture>
+            <source srcset="images/daytrip-fatima-batalha.webp" type="image/webp">
+            <img src="images/daytrip-fatima-batalha.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="The Gothic Monastery of Batalha" loading="lazy" decoding="async">
+          </picture>
+        </div>
+        <div class="p-5 sm:p-6 flex flex-col flex-1">
+          <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Fátima &amp; Batalha</h3>
+          <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">The Sanctuary of Fátima, a local lunch and the Gothic monastery of Batalha.</p>
+          <details class="group mt-4 border-t border-[#E6DFD3]">
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 4 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
+              <li>Sanctuary of Fátima &amp; Chapel of the Apparitions</li>
+              <li>Aljustrel, the shepherd children's village</li>
+              <li>Lunch in a local tasca</li>
+              <li>Batalha Monastery (UNESCO)</li>
+            </ol>
+          </details>
+          <div class="mt-auto pt-4 border-t border-[#E6DFD3]">
+            <p class="font-display text-[26px] leading-none">€550 <span class="font-sans text-[15px] font-medium text-[#46505B]">per group · 8h · up to 4</span></p>
           </div>
         </div>
       </article>
@@ -739,10 +704,10 @@
               <option value="Belém Tour">Belém Tour</option>
             </optgroup>
             <optgroup label="Day trips · per group up to 4">
-              <option value="Nazaré & Óbidos day trip (full day, €550)" data-trip="1">Nazaré &amp; Óbidos, full day</option>
-              <option value="Fátima & Batalha day trip (full day, €550)" data-trip="1">Fátima &amp; Batalha, full day</option>
               <option value="Sintra & Cascais day trip (half day €350 / full day €550)" data-trip="1">Sintra &amp; Cascais, half or full day</option>
               <option value="Arrábida day trip (half day €350 / full day €550)" data-trip="1">Arrábida, half or full day</option>
+              <option value="Nazaré & Óbidos day trip (full day, €550)" data-trip="1">Nazaré &amp; Óbidos, full day</option>
+              <option value="Fátima & Batalha day trip (full day, €550)" data-trip="1">Fátima &amp; Batalha, full day</option>
             </optgroup>
           </select>
         </div>
@@ -827,10 +792,10 @@
     <nav class="md:col-span-2" aria-label="Footer: day trips">
       <p class="text-[13px] font-semibold uppercase tracking-[0.12em] text-white/50 mb-4">Day trips</p>
       <ul class="text-[15px] text-white/75">
-        <li><a href="#trip-nazare-obidos" class="hover:text-white inline-block py-[11px]">Nazaré &amp; Óbidos</a></li>
-        <li><a href="#trip-fatima-batalha" class="hover:text-white inline-block py-[11px]">Fátima &amp; Batalha</a></li>
         <li><a href="#trip-sintra-cascais" class="hover:text-white inline-block py-[11px]">Sintra &amp; Cascais</a></li>
         <li><a href="#trip-arrabida" class="hover:text-white inline-block py-[11px]">Arrábida</a></li>
+        <li><a href="#trip-nazare-obidos" class="hover:text-white inline-block py-[11px]">Nazaré &amp; Óbidos</a></li>
+        <li><a href="#trip-fatima-batalha" class="hover:text-white inline-block py-[11px]">Fátima &amp; Batalha</a></li>
       </ul>
     </nav>
     <div class="md:col-span-3">
@@ -849,14 +814,11 @@
   </div>
 </footer>
 
-<!-- MOBILE STICKY BOOK BAR -->
-<div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur border-t border-[#E6DFD3] px-4 py-3 flex items-center justify-between gap-3">
-  <div class="leading-tight">
-    <p class="text-[15px] text-[#6A7380]">Tuk-tuk tours</p>
-    <p class="font-display text-[22px] text-[#16202A]">€150 <span class="font-sans text-[15px] font-medium text-[#46505B]">per tuk-tuk</span></p>
-  </div>
-  <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="mobile_sticky_bar" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-[#16202A] rounded-xl px-5 min-h-12 text-[16px] font-semibold hover:bg-[#1FC15B]">Book on WhatsApp</a>
-</div>
+<!-- FLOATING WHATSAPP -->
+<a id="wa-float" href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="floating_widget" aria-label="Chat with David on WhatsApp" class="fixed bottom-5 right-4 sm:right-6 z-40 inline-flex items-center gap-2.5 bg-[#25D366] text-[#16202A] rounded-full pl-3.5 pr-5 min-h-14 shadow-[0_10px_30px_-8px_rgba(0,0,0,0.4)] hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">
+  <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2C2.1 6.4 6.5 2 12 2c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.4 9.9-9.9 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
+  <span class="text-[16px] font-semibold">WhatsApp</span>
+</a>
 
 <!-- COOKIE CONSENT BANNER -->
 <div id="cookie-banner" class="hidden fixed bottom-0 inset-x-0 z-[100] bg-[#16202A] text-white px-4 sm:px-6 py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.25)]">
@@ -870,24 +832,6 @@
 </div>
 
 <script>
-  function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const btn = document.getElementById('menu-toggle-btn');
-    const isOpen = !menu.classList.contains('hidden');
-    menu.classList.toggle('hidden');
-    document.getElementById('menu-icon-open').classList.toggle('hidden');
-    document.getElementById('menu-icon-close').classList.toggle('hidden');
-    btn.setAttribute('aria-expanded', String(!isOpen));
-    btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
-  }
-
-  function closeMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    if (!menu.classList.contains('hidden')) {
-      toggleMobileMenu();
-    }
-  }
-
   // Day trips take up to 4 guests; tuk-tuk tours up to 6.
   function updateGuestLimit() {
     const select = document.getElementById('rsvp-tour');
@@ -966,12 +910,21 @@
   });
 
   // Cookie consent: analytics stays off until the visitor accepts
+  // Keep the floating WhatsApp button clear of the cookie banner while it is showing
+  function positionWhatsAppWidget() {
+    const banner = document.getElementById('cookie-banner');
+    const widget = document.getElementById('wa-float');
+    widget.style.bottom = banner.classList.contains('hidden') ? '' : (banner.offsetHeight + 16) + 'px';
+  }
+
   (function () {
     const consent = localStorage.getItem('cookie_consent');
     if (consent === 'granted') {
       gtag('consent', 'update', { analytics_storage: 'granted' });
     } else if (consent !== 'denied') {
       document.getElementById('cookie-banner').classList.remove('hidden');
+      positionWhatsAppWidget();
+      window.addEventListener('resize', positionWhatsAppWidget);
     }
   })();
 
@@ -979,11 +932,13 @@
     localStorage.setItem('cookie_consent', 'granted');
     gtag('consent', 'update', { analytics_storage: 'granted' });
     document.getElementById('cookie-banner').classList.add('hidden');
+    positionWhatsAppWidget();
   }
 
   function rejectCookies() {
     localStorage.setItem('cookie_consent', 'denied');
     document.getElementById('cookie-banner').classList.add('hidden');
+    positionWhatsAppWidget();
   }
 </script>
 
