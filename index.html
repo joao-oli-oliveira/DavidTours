@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+<script>document.documentElement.classList.add('js');</script>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -251,9 +252,76 @@
   h1, h2, h3, .font-display { font-family: 'DM Serif Display', Georgia, 'Times New Roman', serif; font-weight: 400; }
   h1, h2 { text-wrap: balance; }
   summary::-webkit-details-marker { display: none; }
+
+  /* ---- Texture ---- */
+  body { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.016 0.016 0.016 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 180px 180px; }
+  .tex-dark { position: relative; isolation: isolate; }
+  .tex-dark::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background-image: radial-gradient(900px 520px at 100% 0%, rgba(244,196,48,0.12), transparent 60%),
+                      radial-gradient(800px 560px at 0% 100%, rgba(255,255,255,0.07), transparent 60%),
+                      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.028 0.028 0.028 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: auto, auto, 180px 180px; }
+  .hero-glow { isolation: isolate; }
+  .hero-glow::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: radial-gradient(640px 400px at 16% 52%, rgba(244,196,48,0.16), transparent 62%),
+                radial-gradient(720px 520px at 88% 78%, rgba(14,58,91,0.10), transparent 62%); }
+  .photo { position: relative; }
+  .photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(22,32,42,0.08);
+    background: linear-gradient(to top, rgba(22,32,42,0.16), rgba(22,32,42,0) 36%); }
+
+  /* ---- Buttons ---- */
+  .btn { transition: transform .18s ease, box-shadow .18s ease, filter .18s ease; }
+  .btn:active { transform: translateY(0) scale(.985); transition-duration: .08s; }
+  .btn-navy { background-image: linear-gradient(180deg, #174D74 0%, #0E3A5B 58%, #0B3252 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), 0 1px 2px rgba(14,58,91,0.30), 0 10px 24px -12px rgba(14,58,91,0.60); }
+  .btn-wa { background-image: linear-gradient(180deg, #3DE27C 0%, #25D366 58%, #1EBF5C 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.38), 0 1px 2px rgba(18,140,70,0.30), 0 10px 24px -12px rgba(37,211,102,0.70); }
+  .btn-arrow, .btn-arrow-down { display: inline-block; transition: transform .18s ease; }
+  .btn-gold { background-image: linear-gradient(180deg, #F9D255 0%, #F4C430 58%, #E9B61E 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 2px rgba(22,32,42,0.15), 0 8px 20px -12px rgba(244,196,48,0.9); }
+  .btn-ghost { transition: background-color .18s ease, color .18s ease, transform .18s ease; }
+  .btn-ghost:hover { background-color: rgba(255,255,255,0.08); }
+  .gold { background-image: linear-gradient(180deg, #F9D255 0%, #F4C430 58%, #E9B61E 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -1px 0 rgba(0,0,0,0.08); }
+  .gold-badge { background-image: linear-gradient(180deg, #F9D255 0%, #F4C430 58%, #E9B61E 100%);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 2px rgba(22,32,42,0.15), 0 16px 36px -12px rgba(22,32,42,0.35); }
+  .wa-float { box-shadow: inset 0 1px 0 rgba(255,255,255,0.38), 0 2px 4px rgba(18,140,70,0.25), 0 14px 36px -10px rgba(0,0,0,0.45); }
+  .wa-float svg { transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+
+  /* ---- Cards ---- */
+  .card { box-shadow: 0 1px 2px rgba(22,32,42,0.04), 0 12px 32px -20px rgba(14,58,91,0.25);
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease; }
+  .card-img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+  .stat { background-image: linear-gradient(180deg, #FFFFFF 0%, #FDFAF5 100%); }
+  /* Hover effects only on devices with a real pointer, so nothing sticks after a tap */
+  @media (hover: hover) {
+    .btn:hover { transform: translateY(-1px); }
+    .btn-navy:hover { filter: brightness(1.07);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 2px 4px rgba(14,58,91,0.28), 0 16px 32px -14px rgba(14,58,91,0.65); }
+    .btn-wa:hover { filter: brightness(1.04);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.40), 0 2px 4px rgba(18,140,70,0.28), 0 16px 32px -14px rgba(37,211,102,0.75); }
+    .btn-gold:hover { filter: brightness(1.04); }
+    .btn:hover .btn-arrow { transform: translateX(3px); }
+    .btn:hover .btn-arrow-down { transform: translateY(2px); }
+    .wa-float:hover { box-shadow: inset 0 1px 0 rgba(255,255,255,0.40), 0 3px 6px rgba(18,140,70,0.25), 0 20px 44px -12px rgba(0,0,0,0.5); }
+    .wa-float:hover svg { transform: rotate(-8deg) scale(1.06); }
+    .card-lift:hover { transform: translateY(-3px); border-color: #D8CDBB;
+      box-shadow: 0 2px 4px rgba(22,32,42,0.05), 0 28px 56px -24px rgba(14,58,91,0.35); }
+    .card-lift:hover .card-img { transform: scale(1.04); }
+  }
+
+  /* ---- Disclosure animation ---- */
+  details[open] > :not(summary) { animation: reveal-down .32s cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes reveal-down { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+  /* ---- Scroll-in ---- */
+  .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+  .js .reveal.is-in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    * { scroll-behavior: auto !important; transition: none !important; }
+    * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+    .js .reveal { opacity: 1; transform: none; }
   }
 </style>
 </head>
@@ -264,14 +332,14 @@
 <!-- LOGO -->
 <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-5 md:pt-7">
   <a href="#top" class="inline-flex items-center gap-2.5 min-h-11" aria-label="David Tours, back to top">
-    <span class="w-9 h-9 rounded-xl bg-[#F4C430] text-[#16202A] inline-flex items-center justify-center font-display text-[20px] leading-none" aria-hidden="true">D</span>
+    <span class="gold w-9 h-9 rounded-xl bg-[#F4C430] text-[#16202A] inline-flex items-center justify-center font-display text-[20px] leading-none" aria-hidden="true">D</span>
     <span class="font-display text-[22px] leading-none tracking-tight">David Tours</span>
   </a>
 </div>
 
 <main id="main">
 <!-- HERO -->
-<section id="top" class="relative overflow-hidden">
+<section id="top" class="hero-glow relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-10 md:pt-14 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
     <div class="lg:col-span-7">
       <p class="inline-flex items-center gap-2 text-[15px] font-semibold tracking-[0.12em] uppercase text-[#0E3A5B] mb-4">
@@ -285,32 +353,32 @@
         I'm David Reis, born in Lisbon and your driver on every tour.
       </p>
       <ul class="mt-7 grid grid-cols-3 gap-2 sm:gap-3">
-        <li class="bg-white border border-[#E6DFD3] rounded-xl px-3 py-3 sm:px-4 sm:py-4">
+        <li class="card card-lift stat reveal bg-white border border-[#E6DFD3] rounded-xl px-3 py-3 sm:px-4 sm:py-4">
           <span class="block font-display text-[22px] sm:text-[28px] leading-none text-[#16202A]">2 hours</span>
           <span class="block mt-1.5 text-[15px] leading-snug text-[#46505B]">Per tour</span>
         </li>
-        <li class="bg-white border border-[#E6DFD3] rounded-xl px-3 py-3 sm:px-4 sm:py-4">
+        <li class="card card-lift stat reveal bg-white border border-[#E6DFD3] rounded-xl px-3 py-3 sm:px-4 sm:py-4">
           <span class="block font-display text-[22px] sm:text-[28px] leading-none text-[#16202A]">€150</span>
           <span class="block mt-1.5 text-[15px] leading-snug text-[#46505B]">Per tuk-tuk</span>
         </li>
-        <li class="bg-white border border-[#E6DFD3] rounded-xl px-3 py-3 sm:px-4 sm:py-4">
+        <li class="card card-lift stat reveal bg-white border border-[#E6DFD3] rounded-xl px-3 py-3 sm:px-4 sm:py-4">
           <span class="block font-display text-[22px] sm:text-[28px] leading-none text-[#16202A]">Up to 6</span>
           <span class="block mt-1.5 text-[15px] leading-snug text-[#46505B]">Always private</span>
         </li>
       </ul>
       <div class="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
-        <a href="#tours" data-ga="cta_click" data-ga-label="hero_view_tours" class="inline-flex items-center justify-center gap-2 bg-[#0E3A5B] text-white rounded-xl px-6 min-h-14 text-[17px] font-semibold hover:bg-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">See the 3 tuk-tuk tours <span aria-hidden="true">↓</span></a>
-        <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="hero" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-[#16202A] rounded-xl px-6 min-h-14 text-[17px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Message David on WhatsApp</a>
+        <a href="#tours" data-ga="cta_click" data-ga-label="hero_view_tours" class="btn btn-navy inline-flex items-center justify-center gap-2 bg-[#0E3A5B] text-white rounded-xl px-6 min-h-14 text-[17px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">See the 3 tuk-tuk tours <span class="btn-arrow-down" aria-hidden="true">↓</span></a>
+        <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="hero" class="btn btn-wa inline-flex items-center justify-center gap-2.5 bg-[#25D366] text-[#16202A] rounded-xl px-6 min-h-14 text-[17px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" class="shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2C2.1 6.4 6.5 2 12 2c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.4 9.9-9.9 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Message David on WhatsApp</a>
       </div>
     </div>
     <div class="lg:col-span-5 relative">
-      <div class="relative rounded-2xl overflow-hidden shadow-[0_24px_60px_-20px_rgba(14,58,91,0.35)] aspect-[4/3] lg:aspect-[4/5]">
+      <div class="photo relative rounded-2xl overflow-hidden shadow-[0_24px_60px_-20px_rgba(14,58,91,0.35)] aspect-[4/3] lg:aspect-[4/5]">
         <picture>
           <source srcset="images/hero-tuktuk-alfama.webp" type="image/webp">
           <img src="images/hero-tuktuk-alfama.jpg" width="900" height="506" class="absolute inset-0 w-full h-full object-cover" alt="David's tuk-tuk on a cobbled Alfama street at golden hour" fetchpriority="high">
         </picture>
       </div>
-      <div class="absolute -bottom-5 left-4 sm:left-6 bg-[#F4C430] text-[#16202A] rounded-xl px-5 py-3.5 shadow-lg max-w-[300px]">
+      <div class="gold-badge absolute -bottom-5 left-4 sm:left-6 bg-[#F4C430] text-[#16202A] rounded-xl px-5 py-3.5 max-w-[300px]">
         <p class="font-display text-[22px] leading-tight">David Reis</p>
         <p class="text-[15px] font-medium mt-1 leading-snug">Lisbon-born · 8+ years guiding</p>
       </div>
@@ -321,20 +389,20 @@
 <!-- TRUST STRIP -->
 <section aria-label="Book with confidence" class="max-w-7xl mx-auto px-4 sm:px-6 mt-8 md:mt-4">
   <ul class="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#E6DFD3] border border-[#E6DFD3] rounded-2xl overflow-hidden text-[16px] leading-snug font-semibold text-[#16202A]">
-    <li class="bg-white px-4 py-5 flex items-start gap-3">
-      <svg aria-hidden="true" class="shrink-0 text-[#0E3A5B]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    <li class="reveal bg-white px-4 py-5 flex items-center gap-3 transition-colors duration-200 hover:bg-[#FDFBF7]">
+      <span class="shrink-0 w-10 h-10 rounded-full bg-[#0E3A5B]/[0.07] text-[#0E3A5B] inline-flex items-center justify-center" aria-hidden="true"><svg class="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
       <span>Always private, just your group</span>
     </li>
-    <li class="bg-white px-4 py-5 flex items-start gap-3">
-      <svg aria-hidden="true" class="shrink-0 text-[#0E3A5B]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+    <li class="reveal bg-white px-4 py-5 flex items-center gap-3 transition-colors duration-200 hover:bg-[#FDFBF7]">
+      <span class="shrink-0 w-10 h-10 rounded-full bg-[#0E3A5B]/[0.07] text-[#0E3A5B] inline-flex items-center justify-center" aria-hidden="true"><svg class="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span>
       <span>Book directly with the driver</span>
     </li>
-    <li class="bg-white px-4 py-5 flex items-start gap-3">
-      <svg aria-hidden="true" class="shrink-0 text-[#0E3A5B]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>
+    <li class="reveal bg-white px-4 py-5 flex items-center gap-3 transition-colors duration-200 hover:bg-[#FDFBF7]">
+      <span class="shrink-0 w-10 h-10 rounded-full bg-[#0E3A5B]/[0.07] text-[#0E3A5B] inline-flex items-center justify-center" aria-hidden="true"><svg class="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span>
       <span>No prepayment, pay at the end</span>
     </li>
-    <li class="bg-white px-4 py-5 flex items-start gap-3">
-      <svg aria-hidden="true" class="shrink-0 text-[#0E3A5B]" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+    <li class="reveal bg-white px-4 py-5 flex items-center gap-3 transition-colors duration-200 hover:bg-[#FDFBF7]">
+      <span class="shrink-0 w-10 h-10 rounded-full bg-[#0E3A5B]/[0.07] text-[#0E3A5B] inline-flex items-center justify-center" aria-hidden="true"><svg class="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
       <span>Free cancellation up to 24h before</span>
     </li>
   </ul>
@@ -350,26 +418,26 @@
         <p class="mt-4 text-[18px] leading-[1.6] text-[#46505B]">2 hours, €150 per tuk-tuk, up to 6 people. Combine two routes for a 4-hour tour.</p>
       </div>
       <div class="hidden md:flex shrink-0 gap-2" data-scroll-controls="tours-scroller">
-        <button type="button" data-scroll-prev aria-label="Previous tours" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center hover:bg-[#FBF8F3] disabled:opacity-30 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <button type="button" data-scroll-next aria-label="Next tours" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center hover:bg-[#FBF8F3] disabled:opacity-30 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button type="button" data-scroll-prev aria-label="Previous tours" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center transition-all duration-200 hover:bg-[#FBF8F3] hover:border-[#D8CDBB] hover:shadow-[0_8px_18px_-8px_rgba(14,58,91,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none disabled:opacity-30 disabled:cursor-default disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:border-[#E6DFD3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" data-scroll-next aria-label="Next tours" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center transition-all duration-200 hover:bg-[#FBF8F3] hover:border-[#D8CDBB] hover:shadow-[0_8px_18px_-8px_rgba(14,58,91,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none disabled:opacity-30 disabled:cursor-default disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:border-[#E6DFD3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
 
     <div id="tours-scroller" class="mt-8 md:mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 -mx-4 px-4 sm:-mx-6 sm:px-6 pb-3 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:mx-0 lg:px-0 lg:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-scroller>
 
       <!-- OLD TOWN -->
-      <article id="tour-old-town" class="snap-start shrink-0 w-[84%] sm:w-[380px] lg:w-auto bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3]">
+      <article id="tour-old-town" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[380px] lg:w-auto bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden">
           <picture>
             <source srcset="images/sao-jorge-castle.webp" type="image/webp">
-            <img src="images/sao-jorge-castle.jpg" width="900" height="492" class="absolute inset-0 w-full h-full object-cover" alt="São Jorge Castle above the rooftops of Lisbon's old town" loading="lazy" decoding="async">
+            <img src="images/sao-jorge-castle.jpg" width="900" height="492" class="card-img absolute inset-0 w-full h-full object-cover" alt="São Jorge Castle above the rooftops of Lisbon's old town" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1] tracking-[-0.01em]">Old Town Panoramic</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">The hilltop old town: Alfama, the castle, the cathedral and Lisbon's best viewpoint.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full route · 6 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full route · 6 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Alfama</li>
               <li>Graça</li>
@@ -386,18 +454,18 @@
       </article>
 
       <!-- HISTORICAL CENTER -->
-      <article id="tour-historical-center" class="snap-start shrink-0 w-[84%] sm:w-[380px] lg:w-auto bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3]">
+      <article id="tour-historical-center" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[380px] lg:w-auto bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden">
           <picture>
             <source srcset="images/praca-do-comercio.webp" type="image/webp">
-            <img src="images/praca-do-comercio.jpg" width="900" height="466" class="absolute inset-0 w-full h-full object-cover" alt="Praça do Comércio, the riverside square in central Lisbon" loading="lazy" decoding="async">
+            <img src="images/praca-do-comercio.jpg" width="900" height="466" class="card-img absolute inset-0 w-full h-full object-cover" alt="Praça do Comércio, the riverside square in central Lisbon" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1] tracking-[-0.01em]">Historical City Center</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">Downtown from the river up: the big squares, Baixa, Chiado, the Carmo ruins and two viewpoints.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full route · 7 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full route · 7 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Terreiro do Paço</li>
               <li>Chiado</li>
@@ -415,18 +483,18 @@
       </article>
 
       <!-- BELÉM -->
-      <article id="tour-belem" class="snap-start shrink-0 w-[84%] sm:w-[380px] lg:w-auto bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3]">
+      <article id="tour-belem" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[380px] lg:w-auto bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden">
           <picture>
             <source srcset="images/belem-tower-tuktuk-card.webp" type="image/webp">
-            <img src="images/belem-tower-tuktuk-card.jpg" width="800" height="450" class="absolute inset-0 w-full h-full object-cover" alt="David's tuk-tuk parked in front of Belém Tower" loading="lazy" decoding="async">
+            <img src="images/belem-tower-tuktuk-card.jpg" width="800" height="450" class="card-img absolute inset-0 w-full h-full object-cover" alt="David's tuk-tuk parked in front of Belém Tower" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1] tracking-[-0.01em]">Belém</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">The monuments on the river, the Discoveries monument and the original Pastéis de Belém.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full route · 4 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full route · 4 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Belém Tower</li>
               <li>Jerónimos Monastery</li>
@@ -453,26 +521,26 @@
         <p class="mt-4 text-[18px] leading-[1.6] text-[#46505B]">Private car for up to 4, with me as your guide. Pick-up at your Lisbon hotel included.</p>
       </div>
       <div class="hidden md:flex shrink-0 gap-2" data-scroll-controls="trips-scroller">
-        <button type="button" data-scroll-prev aria-label="Previous day trips" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center hover:bg-[#F3EDE2] disabled:opacity-30 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
-        <button type="button" data-scroll-next aria-label="Next day trips" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center hover:bg-[#F3EDE2] disabled:opacity-30 disabled:cursor-default focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button type="button" data-scroll-prev aria-label="Previous day trips" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center transition-all duration-200 hover:bg-[#F3EDE2] hover:border-[#D8CDBB] hover:shadow-[0_8px_18px_-8px_rgba(14,58,91,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none disabled:opacity-30 disabled:cursor-default disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:border-[#E6DFD3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button type="button" data-scroll-next aria-label="Next day trips" class="w-12 h-12 rounded-full border border-[#E6DFD3] bg-white text-[#16202A] inline-flex items-center justify-center transition-all duration-200 hover:bg-[#F3EDE2] hover:border-[#D8CDBB] hover:shadow-[0_8px_18px_-8px_rgba(14,58,91,0.35)] hover:-translate-y-0.5 active:translate-y-0 active:shadow-none disabled:opacity-30 disabled:cursor-default disabled:hover:translate-y-0 disabled:hover:shadow-none disabled:hover:border-[#E6DFD3] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
       </div>
     </div>
 
     <div id="trips-scroller" class="mt-8 md:mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-4 sm:scroll-px-6 -mx-4 px-4 sm:-mx-6 sm:px-6 pb-3 xl:grid xl:grid-cols-4 xl:gap-6 xl:overflow-visible xl:mx-0 xl:px-0 xl:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" data-scroller>
 
       <!-- SINTRA & CASCAIS -->
-      <article id="trip-sintra-cascais" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
+      <article id="trip-sintra-cascais" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden bg-[#EDE6DA]">
           <picture>
             <source srcset="images/daytrip-sintra-cascais.webp" type="image/webp">
-            <img src="images/daytrip-sintra-cascais.jpg" width="900" height="600" class="absolute inset-0 w-full h-full object-cover" alt="Santa Marta lighthouse and the rocky cove in Cascais" loading="lazy" decoding="async">
+            <img src="images/daytrip-sintra-cascais.jpg" width="900" height="600" class="card-img absolute inset-0 w-full h-full object-cover" alt="Santa Marta lighthouse and the rocky cove in Cascais" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Sintra &amp; Cascais</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">Pena Palace, Quinta da Regaleira and Sintra village. The full day adds the coast down to Cascais.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 7 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 7 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <p class="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#6A7380]">Half day · 4h</p>
             <ol class="mt-1.5 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Pena Palace &amp; Park</li>
@@ -494,18 +562,18 @@
       </article>
 
       <!-- ARRÁBIDA -->
-      <article id="trip-arrabida" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
+      <article id="trip-arrabida" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden bg-[#EDE6DA]">
           <picture>
             <source srcset="images/daytrip-arrabida.webp" type="image/webp">
-            <img src="images/daytrip-arrabida.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="Portinho da Arrábida beach seen from the Serra da Arrábida viewpoint" loading="lazy" decoding="async">
+            <img src="images/daytrip-arrabida.jpg" width="438" height="292" class="card-img absolute inset-0 w-full h-full object-cover" alt="Portinho da Arrábida beach seen from the Serra da Arrábida viewpoint" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Arrábida</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">Mountain road, Portinho beach and a winery in Azeitão. The full day adds Sesimbra and the cliffs.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 7 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 7 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <p class="text-[14px] font-semibold uppercase tracking-[0.08em] text-[#6A7380]">Half day · 4h</p>
             <ol class="mt-1.5 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Cristo Rei</li>
@@ -527,18 +595,18 @@
       </article>
 
       <!-- NAZARÉ & ÓBIDOS -->
-      <article id="trip-nazare-obidos" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
+      <article id="trip-nazare-obidos" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden bg-[#EDE6DA]">
           <picture>
             <source srcset="images/daytrip-nazare-obidos.webp" type="image/webp">
-            <img src="images/daytrip-nazare-obidos.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="Aerial view of Óbidos castle and the walled town" loading="lazy" decoding="async">
+            <img src="images/daytrip-nazare-obidos.jpg" width="438" height="292" class="card-img absolute inset-0 w-full h-full object-cover" alt="Aerial view of Óbidos castle and the walled town" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Nazaré &amp; Óbidos</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">A medieval walled town, a UNESCO monastery and the giant waves of Nazaré.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 5 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 5 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Óbidos, walls and ginja in a chocolate cup</li>
               <li>Alcobaça Monastery (UNESCO)</li>
@@ -554,18 +622,18 @@
       </article>
 
       <!-- FÁTIMA & BATALHA -->
-      <article id="trip-fatima-batalha" class="snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
-        <div class="relative aspect-[4/3] bg-[#EDE6DA]">
+      <article id="trip-fatima-batalha" class="card card-lift reveal snap-start shrink-0 w-[84%] sm:w-[360px] xl:w-auto bg-white border border-[#E6DFD3] rounded-2xl overflow-hidden flex flex-col">
+        <div class="photo relative aspect-[4/3] overflow-hidden bg-[#EDE6DA]">
           <picture>
             <source srcset="images/daytrip-fatima-batalha.webp" type="image/webp">
-            <img src="images/daytrip-fatima-batalha.jpg" width="438" height="292" class="absolute inset-0 w-full h-full object-cover" alt="The Gothic Monastery of Batalha" loading="lazy" decoding="async">
+            <img src="images/daytrip-fatima-batalha.jpg" width="438" height="292" class="card-img absolute inset-0 w-full h-full object-cover" alt="The Gothic Monastery of Batalha" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="p-5 sm:p-6 flex flex-col flex-1">
           <h3 class="text-[26px] sm:text-[28px] leading-[1.1]">Fátima &amp; Batalha</h3>
           <p class="mt-2 text-[17px] leading-[1.5] text-[#46505B]">The Sanctuary of Fátima, a local lunch and the Gothic monastery of Batalha.</p>
           <details class="group mt-4 border-t border-[#E6DFD3]">
-            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 4 stops</span><svg aria-hidden="true" class="shrink-0 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+            <summary class="flex items-center justify-between gap-3 cursor-pointer list-none py-3 text-[16px] font-semibold text-[#0E3A5B] transition-colors hover:text-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Full itinerary · 4 stops</span><svg aria-hidden="true" class="shrink-0 w-8 h-8 p-1.5 rounded-full border border-[#E6DFD3] bg-white transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:rotate-180 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
             <ol class="pb-3 list-decimal pl-5 space-y-1 text-[16px] leading-[1.5] text-[#16202A] marker:font-semibold marker:text-[#0E3A5B]">
               <li>Sanctuary of Fátima &amp; Chapel of the Apparitions</li>
               <li>Aljustrel, the shepherd children's village</li>
@@ -583,7 +651,7 @@
 </section>
 
 <!-- PRICES & WHAT'S INCLUDED -->
-<section id="prices" class="bg-[#0E3A5B] text-white py-12 md:py-20">
+<section id="prices" class="tex-dark bg-[#0E3A5B] text-white py-12 md:py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="max-w-3xl">
       <p class="text-[15px] font-semibold tracking-[0.12em] uppercase text-[#F4C430] mb-4">Prices</p>
@@ -591,30 +659,30 @@
     </div>
 
     <div class="mt-8 md:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
-      <div class="lg:col-span-7 rounded-2xl border border-white/15 overflow-hidden divide-y divide-white/15" role="table" aria-label="Prices">
+      <div class="reveal lg:col-span-7 rounded-2xl border border-white/15 overflow-hidden divide-y divide-white/15 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.45)]" role="table" aria-label="Prices">
         <div class="hidden sm:grid grid-cols-12 gap-4 px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.08em] text-white/60" role="row">
           <span class="col-span-5" role="columnheader">Tour</span>
           <span class="col-span-3" role="columnheader">Duration</span>
           <span class="col-span-4" role="columnheader">Price</span>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 px-5 sm:px-6 py-5 bg-white/[0.06] sm:items-center" role="row">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 px-5 sm:px-6 py-5 bg-white/[0.06] sm:items-center transition-colors duration-200 hover:bg-white/[0.11]" role="row">
           <p class="sm:col-span-5 text-[20px] font-semibold leading-snug" role="cell">Tuk-tuk tour</p>
           <p class="sm:col-span-3 text-[17px] text-white/85" role="cell">2 hours</p>
           <p class="sm:col-span-4 leading-tight" role="cell"><span class="font-display text-[28px]">€150</span> <span class="text-[16px] text-white/85">per tuk-tuk, up to 6</span></p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 px-5 sm:px-6 py-5 bg-white/[0.06] sm:items-center" role="row">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 px-5 sm:px-6 py-5 bg-white/[0.06] sm:items-center transition-colors duration-200 hover:bg-white/[0.11]" role="row">
           <p class="sm:col-span-5 text-[20px] font-semibold leading-snug" role="cell">Day trip, half day</p>
           <p class="sm:col-span-3 text-[17px] text-white/85" role="cell">4 hours</p>
           <p class="sm:col-span-4 leading-tight" role="cell"><span class="font-display text-[28px]">€350</span> <span class="text-[16px] text-white/85">per group, up to 4</span></p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 px-5 sm:px-6 py-5 bg-white/[0.06] sm:items-center" role="row">
+        <div class="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-4 px-5 sm:px-6 py-5 bg-white/[0.06] sm:items-center transition-colors duration-200 hover:bg-white/[0.11]" role="row">
           <p class="sm:col-span-5 text-[20px] font-semibold leading-snug" role="cell">Day trip, full day</p>
           <p class="sm:col-span-3 text-[17px] text-white/85" role="cell">8 to 9 hours</p>
           <p class="sm:col-span-4 leading-tight" role="cell"><span class="font-display text-[28px]">€550</span> <span class="text-[16px] text-white/85">per group, up to 4</span></p>
         </div>
       </div>
 
-      <div class="lg:col-span-5 bg-white/[0.06] border border-white/15 rounded-2xl p-6 sm:p-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+      <div class="reveal lg:col-span-5 bg-white/[0.06] border border-white/15 rounded-2xl p-6 sm:p-7 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.45)] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
         <div>
           <h3 class="text-[22px] leading-snug">Included</h3>
           <ul class="mt-3 space-y-2 text-[17px] leading-[1.5] text-white/90">
@@ -641,7 +709,7 @@
 <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-20">
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
     <div class="lg:col-span-5">
-      <div class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+      <div class="photo relative rounded-2xl overflow-hidden aspect-[4/3] shadow-[0_24px_60px_-24px_rgba(14,58,91,0.3)]">
         <picture>
           <source srcset="images/jeronimos-tuktuk.webp" type="image/webp">
           <img src="images/jeronimos-tuktuk.jpg" width="900" height="506" class="absolute inset-0 w-full h-full object-cover" style="object-position: 72% 50%;" alt="A white tuk-tuk parked in front of Jerónimos Monastery in Belém" loading="lazy" decoding="async">
@@ -653,9 +721,9 @@
       <h2 class="text-[36px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em]">Your driver and guide, <em class="text-[#0E3A5B]">David Reis.</em></h2>
       <p class="mt-5 text-[18px] leading-[1.6] text-[#46505B]">Born in Lisbon, eight-plus years showing it from the seat of a tuk-tuk. No office, no subcontracting: the person who answers your message is the person who picks you up. Tell me what you're curious about and the tour bends that way.</p>
       <ul class="mt-7 grid grid-cols-3 gap-3 sm:gap-4">
-        <li class="bg-white border border-[#E6DFD3] rounded-xl px-3 sm:px-5 py-4"><span class="block font-display text-[32px] leading-none text-[#0E3A5B]">8+</span><span class="block mt-2 text-[15px] leading-snug text-[#46505B]">years guiding Lisbon</span></li>
-        <li class="bg-white border border-[#E6DFD3] rounded-xl px-3 sm:px-5 py-4"><span class="block font-display text-[32px] leading-none text-[#0E3A5B]">1</span><span class="block mt-2 text-[15px] leading-snug text-[#46505B]">driver, every tour</span></li>
-        <li class="bg-white border border-[#E6DFD3] rounded-xl px-3 sm:px-5 py-4"><span class="block font-display text-[32px] leading-none text-[#0E3A5B]">7</span><span class="block mt-2 text-[15px] leading-snug text-[#46505B]">routes, city and beyond</span></li>
+        <li class="card card-lift stat reveal bg-white border border-[#E6DFD3] rounded-xl px-3 sm:px-5 py-4"><span class="block font-display text-[32px] leading-none text-[#0E3A5B]">8+</span><span class="block mt-2 text-[15px] leading-snug text-[#46505B]">years guiding Lisbon</span></li>
+        <li class="card card-lift stat reveal bg-white border border-[#E6DFD3] rounded-xl px-3 sm:px-5 py-4"><span class="block font-display text-[32px] leading-none text-[#0E3A5B]">1</span><span class="block mt-2 text-[15px] leading-snug text-[#46505B]">driver, every tour</span></li>
+        <li class="card card-lift stat reveal bg-white border border-[#E6DFD3] rounded-xl px-3 sm:px-5 py-4"><span class="block font-display text-[32px] leading-none text-[#0E3A5B]">7</span><span class="block mt-2 text-[15px] leading-snug text-[#46505B]">routes, city and beyond</span></li>
       </ul>
     </div>
   </div>
@@ -669,35 +737,35 @@
       <h2 class="text-[36px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em]">Book in <em class="text-[#0E3A5B]">three messages.</em></h2>
       <ol class="mt-7 space-y-4">
         <li class="flex gap-4 items-start">
-          <span class="shrink-0 w-10 h-10 rounded-full bg-[#F4C430] text-[#16202A] font-display text-[20px] inline-flex items-center justify-center" aria-hidden="true">1</span>
+          <span class="gold shrink-0 w-10 h-10 rounded-full bg-[#F4C430] text-[#16202A] font-display text-[20px] inline-flex items-center justify-center" aria-hidden="true">1</span>
           <p class="text-[18px] leading-[1.5] pt-1.5"><strong class="font-semibold text-[#16202A]">Send a message</strong> <span class="text-[#46505B]">with the tour, date and number of people.</span></p>
         </li>
         <li class="flex gap-4 items-start">
-          <span class="shrink-0 w-10 h-10 rounded-full bg-[#F4C430] text-[#16202A] font-display text-[20px] inline-flex items-center justify-center" aria-hidden="true">2</span>
+          <span class="gold shrink-0 w-10 h-10 rounded-full bg-[#F4C430] text-[#16202A] font-display text-[20px] inline-flex items-center justify-center" aria-hidden="true">2</span>
           <p class="text-[18px] leading-[1.5] pt-1.5"><strong class="font-semibold text-[#16202A]">I confirm</strong> <span class="text-[#46505B]">the time and meeting point, or hotel pick-up.</span></p>
         </li>
         <li class="flex gap-4 items-start">
-          <span class="shrink-0 w-10 h-10 rounded-full bg-[#F4C430] text-[#16202A] font-display text-[20px] inline-flex items-center justify-center" aria-hidden="true">3</span>
+          <span class="gold shrink-0 w-10 h-10 rounded-full bg-[#F4C430] text-[#16202A] font-display text-[20px] inline-flex items-center justify-center" aria-hidden="true">3</span>
           <p class="text-[18px] leading-[1.5] pt-1.5"><strong class="font-semibold text-[#16202A]">We ride.</strong> <span class="text-[#46505B]">You pay at the end. Cancel free up to 24h before.</span></p>
         </li>
       </ol>
-      <div class="mt-8 bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl p-6">
+      <div class="card mt-8 bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl p-6">
         <p class="text-[15px] font-semibold uppercase tracking-[0.08em] text-[#6A7380]">WhatsApp</p>
-        <a href="https://wa.me/351937586952" target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="contact_panel_number" class="block mt-1 font-display text-[28px] text-[#16202A] hover:text-[#0E3A5B] py-1">+351 937 586 952</a>
-        <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="contact_panel" class="mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] text-[#16202A] rounded-xl px-6 min-h-14 text-[17px] font-semibold hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Open WhatsApp chat</a>
+        <a href="https://wa.me/351937586952" target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="contact_panel_number" class="block mt-1 font-display text-[28px] text-[#16202A] hover:text-[#0E3A5B] transition-colors py-1">+351 937 586 952</a>
+        <a href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="contact_panel" class="btn btn-wa mt-4 w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#25D366] text-[#16202A] rounded-xl px-6 min-h-14 text-[17px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><svg aria-hidden="true" class="shrink-0" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2C2.1 6.4 6.5 2 12 2c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.4 9.9-9.9 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>Open WhatsApp chat</a>
       </div>
     </div>
 
-    <form class="lg:col-span-7 bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl p-5 sm:p-8" onsubmit="return sendToWhatsApp(event)">
+    <form class="card lg:col-span-7 bg-[#FBF8F3] border border-[#E6DFD3] rounded-2xl p-5 sm:p-8" onsubmit="return sendToWhatsApp(event)">
       <p class="text-[18px] leading-[1.6] text-[#46505B] mb-6">Or fill this in. It opens WhatsApp with your request ready to send.</p>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="sm:col-span-2">
           <label for="rsvp-name" class="block text-[15px] font-semibold text-[#16202A] mb-2">Your name</label>
-          <input id="rsvp-name" name="name" type="text" required autocomplete="name" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] placeholder:text-[#6A7380] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]" placeholder="First and last name">
+          <input id="rsvp-name" name="name" type="text" required autocomplete="name" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] placeholder:text-[#6A7380] shadow-[inset_0_1px_2px_rgba(22,32,42,0.05)] transition-[border-color,box-shadow] duration-200 hover:border-[#CFC3B1] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]" placeholder="First and last name">
         </div>
         <div class="sm:col-span-2">
           <label for="rsvp-tour" class="block text-[15px] font-semibold text-[#16202A] mb-2">Tour</label>
-          <select id="rsvp-tour" name="tour" onchange="updateGuestLimit()" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]">
+          <select id="rsvp-tour" name="tour" onchange="updateGuestLimit()" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] shadow-[inset_0_1px_2px_rgba(22,32,42,0.05)] transition-[border-color,box-shadow] duration-200 hover:border-[#CFC3B1] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]">
             <optgroup label="Tuk-tuk tours · 2h · €150 per tuk-tuk">
               <option value="Old Town Panoramic Tour">Old Town Panoramic Tour</option>
               <option value="Historical City Center Tour">Historical City Center Tour</option>
@@ -713,18 +781,18 @@
         </div>
         <div>
           <label for="rsvp-date" class="block text-[15px] font-semibold text-[#16202A] mb-2">Preferred date</label>
-          <input id="rsvp-date" name="date" type="date" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]">
+          <input id="rsvp-date" name="date" type="date" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] shadow-[inset_0_1px_2px_rgba(22,32,42,0.05)] transition-[border-color,box-shadow] duration-200 hover:border-[#CFC3B1] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]">
         </div>
         <div>
           <label for="rsvp-guests" class="block text-[15px] font-semibold text-[#16202A] mb-2">Guests <span id="rsvp-guests-hint" class="font-normal text-[#6A7380]">(up to 6)</span></label>
-          <input id="rsvp-guests" name="guests" type="number" inputmode="numeric" min="1" max="6" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] placeholder:text-[#6A7380] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]" placeholder="2">
+          <input id="rsvp-guests" name="guests" type="number" inputmode="numeric" min="1" max="6" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 min-h-14 text-[17px] text-[#16202A] placeholder:text-[#6A7380] shadow-[inset_0_1px_2px_rgba(22,32,42,0.05)] transition-[border-color,box-shadow] duration-200 hover:border-[#CFC3B1] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]" placeholder="2">
         </div>
         <div class="sm:col-span-2">
           <label for="rsvp-message" class="block text-[15px] font-semibold text-[#16202A] mb-2">Anything else? <span class="font-normal text-[#6A7380]">(optional)</span></label>
-          <textarea id="rsvp-message" name="message" rows="3" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 py-3 text-[17px] text-[#16202A] placeholder:text-[#6A7380] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]" placeholder="Hotel name, preferred time, children's ages, mobility needs…"></textarea>
+          <textarea id="rsvp-message" name="message" rows="3" class="w-full bg-white border border-[#E6DFD3] rounded-xl px-4 py-3 text-[17px] text-[#16202A] placeholder:text-[#6A7380] shadow-[inset_0_1px_2px_rgba(22,32,42,0.05)] transition-[border-color,box-shadow] duration-200 hover:border-[#CFC3B1] focus:outline-none focus:ring-2 focus:ring-[#0E3A5B] focus:border-[#0E3A5B]" placeholder="Hotel name, preferred time, children's ages, mobility needs…"></textarea>
         </div>
       </div>
-      <button type="submit" class="mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#0E3A5B] text-white rounded-xl px-6 min-h-14 text-[17px] font-semibold hover:bg-[#0A2D47] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Continue on WhatsApp <span aria-hidden="true">→</span></button>
+      <button type="submit" class="btn btn-navy mt-6 w-full inline-flex items-center justify-center gap-2 bg-[#0E3A5B] text-white rounded-xl px-6 min-h-14 text-[17px] font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">Continue on WhatsApp <span class="btn-arrow" aria-hidden="true">→</span></button>
       <p class="mt-3 text-[15px] leading-[1.6] text-[#6A7380] text-center">Nothing is sent until you press send in WhatsApp.</p>
     </form>
   </div>
@@ -737,35 +805,35 @@
     <h2 class="text-[36px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.02em]">Questions I get <em class="text-[#0E3A5B]">before every ride.</em></h2>
     <div class="mt-8 divide-y divide-[#E6DFD3] border-t border-b border-[#E6DFD3]">
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Is the €150 price per person or per <span class="whitespace-nowrap">tuk-tuk</span>?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Is the €150 price per person or per <span class="whitespace-nowrap">tuk-tuk</span>?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">Per tuk-tuk. €150 covers the whole vehicle for the 2-hour tour, whether you are 1 or 6 people. Split six ways that is about €25 per person.</p>
       </details>
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Where do we meet, and is hotel pick-up included?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Where do we meet, and is hotel pick-up included?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">For day trips, pick-up and drop-off at your hotel or apartment in Lisbon is included. For tuk-tuk tours, we agree a convenient meeting point in central Lisbon on WhatsApp when you book.</p>
       </details>
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Can we combine two tuk-tuk routes?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Can we combine two tuk-tuk routes?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">Yes. Two routes back to back make a 4-hour tour. Say which two on WhatsApp and I will plan it. Routes also adapt on the day to traffic, weather and what you enjoy most.</p>
       </details>
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>What happens if it rains?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>What happens if it rains?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">Lisbon is dry most of the year, but if the forecast turns bad, message me and we will move your tour to another time or day at no cost. The tuk-tuk is open-air, so bring a light jacket in the evening and sun protection in summer.</p>
       </details>
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>What is the cancellation policy?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>What is the cancellation policy?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">You can cancel free of charge up to 24 hours before the tour. Nothing is prepaid, so there is nothing to refund.</p>
       </details>
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Can children come along?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>Can children come along?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">Yes, families are very welcome. Children count towards the seat limit (6 in the tuk-tuk, 4 on day trips). Tell me their ages when you book so I can plan the pace and stops.</p>
       </details>
       <details class="group">
-        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>How do I book, and do I pay in advance?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] transition-transform group-open:rotate-45">+</span></summary>
+        <summary class="flex items-center justify-between gap-4 cursor-pointer list-none py-5 text-[18px] font-semibold leading-snug text-[#16202A] transition-colors hover:text-[#0E3A5B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]"><span>How do I book, and do I pay in advance?</span><span aria-hidden="true" class="shrink-0 w-9 h-9 rounded-lg bg-white border border-[#E6DFD3] inline-flex items-center justify-center text-[#0E3A5B] text-[20px] shadow-[0_1px_2px_rgba(22,32,42,0.06)] transition-all duration-200 group-hover:border-[#0E3A5B]/40 group-open:bg-[#0E3A5B] group-open:border-[#0E3A5B] group-open:text-white"><span class="inline-block leading-none transition-transform duration-200 group-open:rotate-45">+</span></span></summary>
         <p class="pb-5 -mt-1 text-[17px] leading-[1.6] text-[#46505B]">Send me a WhatsApp message with the tour, date and number of guests, or use the form on this page, which opens WhatsApp with your details filled in. I confirm directly. There is no prepayment and no booking platform in between.</p>
       </details>
     </div>
-    <p class="mt-6 text-[18px] leading-[1.6] text-[#46505B]">Anything missing? Ask me on <a href="https://wa.me/351937586952" target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="faq_inline" class="inline-block py-2 -my-2 font-semibold text-[#0E3A5B] underline underline-offset-2">WhatsApp</a>.</p>
+    <p class="mt-6 text-[18px] leading-[1.6] text-[#46505B]">Anything missing? Ask me on <a href="https://wa.me/351937586952" target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="faq_inline" class="inline-block py-2 -my-2 font-semibold text-[#0E3A5B] underline underline-offset-2 decoration-[#0E3A5B]/40 hover:decoration-[#0E3A5B] transition-colors">WhatsApp</a>.</p>
   </div>
 </section>
 </main>
@@ -775,7 +843,7 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-10">
     <div class="md:col-span-5">
       <p class="flex items-center gap-2.5">
-        <span class="w-9 h-9 rounded-xl bg-[#F4C430] text-[#16202A] inline-flex items-center justify-center font-display text-[20px] leading-none" aria-hidden="true">D</span>
+        <span class="gold w-9 h-9 rounded-xl bg-[#F4C430] text-[#16202A] inline-flex items-center justify-center font-display text-[20px] leading-none" aria-hidden="true">D</span>
         <span class="font-display text-[22px] leading-none">David Tours</span>
       </p>
       <p class="mt-4 text-[15px] leading-[1.65] text-white/70 max-w-sm">Private tuk-tuk tours of Lisbon and private day trips to Sintra, Arrábida, Nazaré and Fátima. Driven and guided by me, David Reis, born in this city.</p>
@@ -784,27 +852,27 @@
     <nav class="md:col-span-2" aria-label="Footer: tuk-tuk tours">
       <p class="text-[13px] font-semibold uppercase tracking-[0.12em] text-white/50 mb-4">Tuk-tuk tours</p>
       <ul class="text-[15px] text-white/75">
-        <li><a href="#tour-old-town" class="hover:text-white inline-block py-[11px]">Old Town Panoramic</a></li>
-        <li><a href="#tour-historical-center" class="hover:text-white inline-block py-[11px]">Historical City Center</a></li>
-        <li><a href="#tour-belem" class="hover:text-white inline-block py-[11px]">Belém</a></li>
+        <li><a href="#tour-old-town" class="hover:text-white transition-colors inline-block py-[11px]">Old Town Panoramic</a></li>
+        <li><a href="#tour-historical-center" class="hover:text-white transition-colors inline-block py-[11px]">Historical City Center</a></li>
+        <li><a href="#tour-belem" class="hover:text-white transition-colors inline-block py-[11px]">Belém</a></li>
       </ul>
     </nav>
     <nav class="md:col-span-2" aria-label="Footer: day trips">
       <p class="text-[13px] font-semibold uppercase tracking-[0.12em] text-white/50 mb-4">Day trips</p>
       <ul class="text-[15px] text-white/75">
-        <li><a href="#trip-sintra-cascais" class="hover:text-white inline-block py-[11px]">Sintra &amp; Cascais</a></li>
-        <li><a href="#trip-arrabida" class="hover:text-white inline-block py-[11px]">Arrábida</a></li>
-        <li><a href="#trip-nazare-obidos" class="hover:text-white inline-block py-[11px]">Nazaré &amp; Óbidos</a></li>
-        <li><a href="#trip-fatima-batalha" class="hover:text-white inline-block py-[11px]">Fátima &amp; Batalha</a></li>
+        <li><a href="#trip-sintra-cascais" class="hover:text-white transition-colors inline-block py-[11px]">Sintra &amp; Cascais</a></li>
+        <li><a href="#trip-arrabida" class="hover:text-white transition-colors inline-block py-[11px]">Arrábida</a></li>
+        <li><a href="#trip-nazare-obidos" class="hover:text-white transition-colors inline-block py-[11px]">Nazaré &amp; Óbidos</a></li>
+        <li><a href="#trip-fatima-batalha" class="hover:text-white transition-colors inline-block py-[11px]">Fátima &amp; Batalha</a></li>
       </ul>
     </nav>
     <div class="md:col-span-3">
       <p class="text-[13px] font-semibold uppercase tracking-[0.12em] text-white/50 mb-4">Contact</p>
       <ul class="text-[15px] text-white/75">
-        <li><a href="https://wa.me/351937586952" target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="footer_text" class="hover:text-white inline-block py-[11px]">WhatsApp +351 937 586 952</a></li>
+        <li><a href="https://wa.me/351937586952" target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="footer_text" class="hover:text-white transition-colors inline-block py-[11px]">WhatsApp +351 937 586 952</a></li>
         <li class="py-[11px]">Lisbon, Portugal</li>
-        <li><a href="#contact" class="hover:text-white inline-block py-[11px]">Reservation form</a></li>
-        <li><a href="#prices" class="hover:text-white inline-block py-[11px]">Prices</a></li>
+        <li><a href="#contact" class="hover:text-white transition-colors inline-block py-[11px]">Reservation form</a></li>
+        <li><a href="#prices" class="hover:text-white transition-colors inline-block py-[11px]">Prices</a></li>
       </ul>
     </div>
   </div>
@@ -815,7 +883,7 @@
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a id="wa-float" href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="floating_widget" aria-label="Chat with David on WhatsApp" class="fixed bottom-5 right-4 sm:right-6 z-40 inline-flex items-center gap-2.5 bg-[#25D366] text-[#16202A] rounded-full pl-3.5 pr-5 min-h-14 shadow-[0_10px_30px_-8px_rgba(0,0,0,0.4)] hover:bg-[#1FC15B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">
+<a id="wa-float" href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="floating_widget" aria-label="Chat with David on WhatsApp" class="btn btn-wa wa-float fixed bottom-5 right-4 sm:right-6 z-40 inline-flex items-center gap-2.5 bg-[#25D366] text-[#16202A] rounded-full pl-3.5 pr-5 min-h-14 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0E3A5B]">
   <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.9 11.9 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.5 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.9 9.9 0 0 1-1.5-5.2C2.1 6.4 6.5 2 12 2c2.6 0 5.1 1 7 2.9a9.8 9.8 0 0 1 2.9 7c0 5.5-4.4 9.9-9.9 9.9zm5.4-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4z"/></svg>
   <span class="text-[16px] font-semibold">WhatsApp</span>
 </a>
@@ -825,8 +893,8 @@
   <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
     <p class="text-[15px] text-white/80 leading-relaxed">This site uses Google Analytics cookies to understand how visitors use it. <a href="privacy.html" class="underline hover:text-white">Learn more about cookie use</a>.</p>
     <div class="flex items-center gap-2 shrink-0">
-      <button onclick="rejectCookies()" class="text-[15px] font-medium text-white/80 hover:text-white px-4 min-h-11 rounded-xl">Reject</button>
-      <button onclick="acceptCookies()" class="text-[15px] font-semibold bg-[#F4C430] text-[#16202A] hover:bg-[#E6B41F] rounded-xl px-5 min-h-11">Accept</button>
+      <button onclick="rejectCookies()" class="btn-ghost text-[15px] font-medium text-white/80 hover:text-white px-4 min-h-11 rounded-xl">Reject</button>
+      <button onclick="acceptCookies()" class="btn btn-gold text-[15px] font-semibold bg-[#F4C430] text-[#16202A] rounded-xl px-5 min-h-11">Accept</button>
     </div>
   </div>
 </div>
@@ -890,6 +958,25 @@
     window.addEventListener('resize', update);
     update();
   });
+
+  // Soft fade-up for cards as they scroll into view; staggered among siblings, then handed back to plain CSS
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.remove('reveal'); }); return; }
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const siblings = Array.from(el.parentElement.children).filter(function (c) { return c.classList.contains('reveal'); });
+        const i = Math.max(siblings.indexOf(el), 0);
+        el.style.transitionDelay = (i * 70) + 'ms';
+        el.classList.add('is-in');
+        io.unobserve(el);
+        setTimeout(function () { el.classList.remove('reveal', 'is-in'); el.style.transitionDelay = ''; }, 800 + i * 70);
+      });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+  })();
 
   // Analytics: track which itineraries get expanded
   document.querySelectorAll('#tours details, #day-trips details').forEach(function (details) {
