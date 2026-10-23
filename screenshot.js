@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
 
-// Env overrides: VIEWPORT_WIDTH (1440), VIEWPORT_HEIGHT (900), OUT (screenshot-full.png)
+// Env overrides: VIEWPORT_WIDTH (1440), VIEWPORT_HEIGHT (900), OUT (screenshot-full.png), SHOW_BANNER=1 (keep the cookie banner, as a first-time visitor sees it)
 (async () => {
   const width = Number(process.env.VIEWPORT_WIDTH) || 1440;
   const height = Number(process.env.VIEWPORT_HEIGHT) || 900;
@@ -10,7 +10,7 @@ const path = require('path');
   const page = await browser.newPage();
   await page.setViewport({ width, height, deviceScaleFactor: 1 });
   // Pretend the visitor already answered the cookie banner so it does not cover the page.
-  await page.evaluateOnNewDocument(() => { try { localStorage.setItem('cookie_consent', 'denied'); } catch (e) {} });
+  if (!process.env.SHOW_BANNER) await page.evaluateOnNewDocument(() => { try { localStorage.setItem('cookie_consent', 'denied'); } catch (e) {} });
   const filePath = 'file://' + path.resolve(__dirname, 'index.html');
   await page.goto(filePath, { waitUntil: 'networkidle0' });
   // Scroll through the page so lazy-loaded images actually load, then wait for them.

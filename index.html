@@ -245,6 +245,8 @@
   .wordmark { font-weight: 600; letter-spacing: -0.02em; }
   summary::-webkit-details-marker { display: none; }
   .btn { transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
+  #wa-float { transition: opacity .25s ease, transform .25s ease, background-color .15s ease; }
+  #wa-float.is-hidden { opacity: 0; transform: translateY(12px); pointer-events: none; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
@@ -506,15 +508,15 @@
 </footer>
 
 <!-- FLOATING WHATSAPP -->
-<a id="wa-float" href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="floating_widget" aria-label="Chat with David on WhatsApp" class="btn fixed bottom-5 right-5 sm:right-8 z-40 inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1FC15B] text-white rounded-full pl-3.5 pr-5 min-h-[52px] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3E3EFF]">
+<a id="wa-float" href="https://wa.me/351937586952?text=Hi%20David%2C%20I%27d%20like%20to%20book%20a%20tour." target="_blank" rel="noopener noreferrer" data-ga="whatsapp_click" data-ga-label="floating_widget" aria-label="Chat with David on WhatsApp" class="btn is-hidden fixed bottom-5 right-5 sm:right-8 z-40 inline-flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#1FC15B] text-white rounded-full w-[52px] h-[52px] sm:w-auto sm:h-auto sm:pl-3.5 sm:pr-5 sm:min-h-[52px] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.35)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3E3EFF]">
   <svg aria-hidden="true" width="26" height="26" fill="currentColor"><use href="#ico-wa"/></svg>
-  <span class="text-[15px] font-semibold">WhatsApp</span>
+  <span class="hidden sm:inline text-[15px] font-semibold">WhatsApp</span>
 </a>
 
 <!-- COOKIE CONSENT BANNER -->
-<div id="cookie-banner" class="hidden fixed bottom-0 inset-x-0 z-[100] bg-[#15153A] text-white px-5 sm:px-8 py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
-  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <p class="text-[15px] text-white/80 leading-relaxed">This site uses Google Analytics cookies to understand how visitors use it. <a href="privacy.html" class="underline hover:text-white">Learn more about cookie use</a>.</p>
+<div id="cookie-banner" class="hidden fixed bottom-0 inset-x-0 z-[100] bg-[#15153A] text-white px-5 sm:px-8 py-3 sm:py-4 shadow-[0_-4px_20px_rgba(0,0,0,0.2)]">
+  <div class="max-w-6xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
+    <p class="text-[14px] sm:text-[15px] text-white/80 leading-snug sm:leading-relaxed">We use Google Analytics cookies to see how the site is used. <a href="privacy.html" class="underline hover:text-white whitespace-nowrap">Learn more</a>.</p>
     <div class="flex items-center gap-2 shrink-0">
       <button onclick="rejectCookies()" class="btn text-[15px] font-medium text-white/80 hover:text-white px-4 min-h-11 rounded-lg">Reject</button>
       <button onclick="acceptCookies()" class="btn text-[15px] font-semibold bg-white text-[#15153A] hover:bg-[#EEF0F7] rounded-lg px-5 min-h-11">Accept</button>
@@ -557,6 +559,16 @@
       }
     });
   });
+
+  // Floating WhatsApp button: hidden while the hero (which has its own button) is on screen, shown once you scroll past it
+  (function () {
+    const widget = document.getElementById('wa-float');
+    const hero = document.getElementById('top');
+    if (!('IntersectionObserver' in window) || !hero) { widget.classList.remove('is-hidden'); return; }
+    new IntersectionObserver(function (entries) {
+      widget.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(hero);
+  })();
 
   // Keep the floating WhatsApp button clear of the cookie banner while it is showing
   function positionWhatsAppWidget() {
