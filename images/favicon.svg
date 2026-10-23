@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#1D5C8A"/>
-  <text x="32" y="38" font-size="40" text-anchor="middle" dominant-baseline="middle">🛺</text>
+  <rect x="6.45" y="6.45" width="51.1" height="51.1" fill="none" stroke="#C6974A" stroke-width="2"/>
+  <g fill="#3E3EFF">
+    <polygon points="32,2 62,32 32,62 2,32"/>
+    <circle cx="18.85" cy="18.85" r="9.6"/><circle cx="45.15" cy="18.85" r="9.6"/><circle cx="18.85" cy="45.15" r="9.6"/><circle cx="45.15" cy="45.15" r="9.6"/>
+  </g>
+  <g fill="#FFFFFF">
+    <polygon points="32,4.83 59.17,32 32,59.17 4.83,32"/>
+    <circle cx="18.85" cy="18.85" r="7.6"/><circle cx="45.15" cy="18.85" r="7.6"/><circle cx="18.85" cy="45.15" r="7.6"/><circle cx="45.15" cy="45.15" r="7.6"/>
+  </g>
 </svg>
